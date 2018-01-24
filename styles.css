@@ -1,0 +1,42 @@
+@import url(//fonts.googleapis.com/earlyaccess/jejuhallasan.css);
+@import url(//fonts.googleapis.com/earlyaccess/hanna.css);
+@import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
+
+
+h1 {
+  /* font-family: 'Jeju Hallasan', 'Hanna', 'Nanum Gothic', cursive; */
+}
+
+.container__head {
+  height: 200px;
+  margin: 0 auto 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container__main {
+  padding: 0 20px;
+  margin: 0 auto 0 auto;
+  text-align: center;
+}
+
+.form {
+  padding-bottom: 30px;
+}
+
+.form label {
+  text-align: left;
+}
+
+.container__main .button {
+  
+}
+
+
+@media (min-width:768px) {
+  .container__main {
+    max-width: 768px;
+  }
+}
