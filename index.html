@@ -2,115 +2,49 @@
 <html>
 
 <head>
-  <title>군복무 단축 계산기</title>
-  <meta charset="UTF-8">
+    <title>군복무 단축 계산기</title>
+    <meta charset="UTF-8">
 
-  <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
-  <link rel="stylesheet" type="text/css" href="styles.css">
-  <!--<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>!-->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="./semantic/dist/semantic.min.js"></script>
-  <script src="./node_modules/moment/min/moment.min.js"></script>
-  
-  <script type="text/javascript" defer>
-    moment().format();
-    var _MS_PER_DAY = 1000 * 60 * 60 * 24;
-    
-    function changeDeltaText(delta) {
-      let resStr;
-      
-      if (delta <= 0) {
-        resStr = "아쉽지만 군복무가 단축되지 않았습니다.";
-      } else {
-        resStr = "축하합니다! 군복무가 " + delta + "일 단축되었습니다.";
-      }
-      
-      $('.results--delta').text(resStr);
-    }
-    
-    function changeEndDateText(endDate) {
-      let dateStr = "전역일은 " + endDate.year() + "년 " 
-                                + endDate.month() + "월 "
-                                + endDate.day() + "일 "
-                                + "입니다."; 
-                                
-      $('.results--date').text(dateStr);
-    }
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="./node_modules/moment/min/moment.min.js"></script>
 
-  
-    $(document).ready(function() {
-      $('.ui.dropdown').dropdown();
-      
-      $("#submit").click(function() {
-        $('.results').show();
-        
-        let joinDateString = $('#join_date').val();
-        
-        /*
-        let joinDate = new Date(joinDateString);
-        
-        let referenceDate = new Date('10/4/2016');
-        
-        let delta = Math.floor((joinDate - referenceDate) / _MS_PER_DAY / 14) + 1;
-        */
-        
-        let joinDate = moment(joinDateString, 'YYMMDD');
-        let referenceDate = moment("161004", 'YYMMDD');
-        
-        var daysDelta = Math.floor(
-          moment.duration(joinDate.diff(referenceDate)).asDays() / 14 + 1);
-        
-        let prevEndDate = joinDate.add(21, 'M');
-        let newEnddate = prevEndDate.subtract(daysDelta, 'd');
-        
-        changeDeltaText(daysDelta);
-        changeEndDateText(prevEndDate);
-        
-        alert(prevEndDate);
-      });
-      
-    });
-
-  </script>
+    <script src="./index.js" type="text/javascript" defer></script>
 </head>
 
 <body>
 
-  <div class="container__head">
+<div class="container__head">
     <h1>군복무 단축 계산기</h1>
-  </div>
+</div>
 
-  <div class="container__main">
-    <form class="ui form">
-      <div class="field">
-        <label>군별선택</label>
-        <div class="ui selection dropdown">
-            <input type="hidden" name="service_type">
-            <i class="dropdown icon"></i>
-            <div class="default text">군별선택</div>
-            <div class="menu">
-                <div class="item" data-value="0">육군</div>
-                <div class="item" data-value="1">해군</div>
-                <div class="item" data-value="2">공군</div>
-            </div>
+<div class="container__main">
+    <form class="form">
+        <div class="field">
+            <label>군별선택</label>
+
+            <select class="select_service_type" name="service_type">
+                <option value="army">육군</option>
+                <option value="navy">해군</option>
+                <option value="airforce">공군</option>
+            </select>
         </div>
-      </div>
-      
-      <div class="field">
-        <label>입대일</label>
-        <input type="text" id ="join_date" name="join_date" placeholder="예) 170131">
-      </div>
-      
-      <button id="submit" class="ui button" type="button">계산!</button>
-      
+
+        <div class="field">
+            <label>입대일</label>
+            <input type="text" id ="join_date" name="join_date" placeholder="예) 170131">
+        </div>
+
+        <button id="submit" class="ui button" type="button">계산!</button>
+
     </form>
-    
+
     <div class="results">
-      <h2 class="results--delta">축하합니다! 군복무가 <b>20일</b> 단축되었습니다.</h2>
-      <h3 class="results--date">전역일은 2018년 01월 01일 입니다.</h3>
+        <h2 class="results--delta">축하합니다! 군복무가 <b>20일</b> 단축되었습니다.</h2>
+        <h3 class="results--date">전역일은 2018년 01월 01일 입니다.</h3>
     </div>
-    
-  </div>
+
+</div>
 
 </body>
 
