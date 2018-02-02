@@ -40,7 +40,7 @@ label {
 
 input[type=text], select {
     width: 100%;
-    padding: 12px;
+    padding: 6px 12px;
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
@@ -48,8 +48,8 @@ input[type=text], select {
     font-size: 1.2rem;
     margin-top: 10px;
     height: 45px;
-    /*line-height:45px;*/
-    background:#ffffff;
+    line-height: 45px;
+    background: #ffffff;
 }
 
 button {
