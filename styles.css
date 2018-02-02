@@ -48,7 +48,7 @@ input[type=text], select {
     font-size: 1.2rem;
     margin-top: 10px;
     height: 45px;
-    line-height:45px;
+    /*line-height:45px;*/
     background:#ffffff;
 }
 
