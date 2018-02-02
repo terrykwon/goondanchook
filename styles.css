@@ -1,46 +1,110 @@
 /*@import url(https://fonts.googleapis.com/earlyaccess/jejuhallasan.css);*/
 /*@import url(https://fonts.googleapis.com/earlyaccess/hanna.css);*/
-/*@import url(https://fonts.googleapis.com/earlyaccess/nanumgothic.css);*/
+@import url(https://fonts.googleapis.com/earlyaccess/nanumgothic.css);
 
+
+h1, h2, h3, h4, h5, p, label {
+     font-family: 'Nanum Gothic', sans-serif;
+}
 
 h1 {
-  /* font-family: 'Jeju Hallasan', 'Hanna', 'Nanum Gothic', cursive; */
+    font-size: 2rem;
+    font-weight: 700;
+    color: #404040;
+}
+
+.results h2 {
+    font-size: 1.6rem;
+
+}
+
+.results h3 {
+    font-size: 1.4rem;
+    margin-top: 20px;
+}
+
+.field {
+    text-align: left;
+    padding: 15px 0;
+}
+
+.accented {
+    color: red;
+    font-weight: 700;
+}
+
+label {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+input[type=text], select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: vertical;
+    font-size: 1.2rem;
+    margin-top: 10px;
+    height: 45px;
+    line-height:45px;
+    background:#ffffff;
+}
+
+button {
+    font-size: 1.3rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 8px 12px;
+    margin-top: 15px;
+}
+
+button:hover {
+    background-color: aliceblue;
+}
+
+button:active {
+    background-color: aquamarine;
 }
 
 .container__head {
-  height: 200px;
-  margin: 0 auto 0 auto;
-  padding: 0 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    height: 200px;
+    margin: 0 auto 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .container__main {
-  padding: 0 20px;
-  margin: 0 auto 0 auto;
-  text-align: center;
+    padding: 0 20px;
+    margin: 0 auto 0 auto;
+    text-align: center;
 }
 
 .form {
-  padding-bottom: 30px;
+    padding-bottom: 30px;
+    /*text-align: left;*/
+    /*max-width: 400px;*/
+    /*display: inline-block;*/
 }
 
 .form label {
-  text-align: left;
+    text-align: left;
 }
 
 .container__main .button {
-  
+
 }
 
 .results {
-  display: none;
+    display: none;
 }
 
 
 @media (min-width:768px) {
-  .container__main {
-    max-width: 768px;
-  }
+    .container__main {
+        max-width: 768px;
+    }
 }
