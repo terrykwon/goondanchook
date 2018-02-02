@@ -47,8 +47,8 @@ input[type=text], select {
     resize: vertical;
     font-size: 1.2rem;
     margin-top: 10px;
-    height: 45px;
-    line-height: 45px;
+    /*height: 45px;*/
+    line-height: 32px;
     background: #ffffff;
 }
 
@@ -56,7 +56,7 @@ button {
     font-size: 1.3rem;
     border: 1px solid #ccc;
     border-radius: 4px;
-    padding: 8px 12px;
+    padding: 8px 16px;
     margin-top: 15px;
 }
 
@@ -69,7 +69,7 @@ button:active {
 }
 
 .container__head {
-    height: 200px;
+    height: 120px;
     margin: 0 auto 0 auto;
     padding: 0 20px;
     display: flex;
@@ -105,6 +105,10 @@ button:active {
 
 @media (min-width:768px) {
     .container__main {
-        max-width: 768px;
+        max-width: 600px;
+    }
+
+    .container__head {
+        height: 200px;
     }
 }
