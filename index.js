@@ -35,7 +35,7 @@ $(document).ready(function() {
             return;
         }
 
-        $('.results').show();
+        $('.results').hide().fadeIn(1200).show();
 
         let referenceDate = moment("161004", 'YYMMDD'); // Date when policy goes in effect
 
@@ -58,7 +58,7 @@ $(document).ready(function() {
 
         changeDeltaText(reducedDays);
 
-        if (delta > 0) {
+        if (reducedDays > 0) {
             changeEndDateText(prevEndDate.subtract(reducedDays, 'd'));
         } else {
             changeEndDateText(prevEndDate);
