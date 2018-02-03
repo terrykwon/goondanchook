@@ -2,24 +2,38 @@
 /*@import url(https://fonts.googleapis.com/earlyaccess/hanna.css);*/
 @import url(https://fonts.googleapis.com/earlyaccess/nanumgothic.css);
 
+body {
+    background: #414d0b;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #727a17, #414d0b);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #727a17, #414d0b); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
 
 h1, h2, h3, h4, h5, p, label {
-     font-family: 'Nanum Gothic', sans-serif;
+    font-family: 'Nanum Gothic', sans-serif;
+    color: #414141;
+}
+
+header {
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 h1 {
-    font-size: 2rem;
+    font-size: 1.6rem;
     font-weight: 700;
-    color: #404040;
+    letter-spacing: 5px;
 }
 
 .results h2 {
     font-size: 1.6rem;
-
+    line-height: 2.4rem;
 }
 
 .results h3 {
     font-size: 1.4rem;
+    line-height: 2.2rem;
     margin-top: 20px;
 }
 
@@ -34,7 +48,7 @@ h1 {
 }
 
 label {
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 700;
 }
 
@@ -44,12 +58,37 @@ input[type=text], select {
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
-    resize: vertical;
     font-size: 1.2rem;
     margin-top: 10px;
-    /*height: 45px;*/
-    line-height: 32px;
+    /*line-height: 32px;*/
     background: #ffffff;
+}
+
+select {
+
+}
+
+input[type=text]:focus {
+    outline: 0;
+    border: 1px solid green;
+}
+
+select:focus {
+    outline: 0;
+    border: 1px solid green;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #dfdfdf;
+    opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #dfdfdf;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: #dfdfdf;
 }
 
 button {
@@ -58,15 +97,21 @@ button {
     border-radius: 4px;
     padding: 8px 16px;
     margin-top: 15px;
+    background-color: white;
+}
+
+button:focus {
+    outline: 0;
 }
 
 button:hover {
-    background-color: aliceblue;
+    background-color: #dfdfdf;
 }
 
-button:active {
-    background-color: aquamarine;
-}
+/*button:active {*/
+    /*background-color: aquamarine;*/
+    /*outline: 0;*/
+/*}*/
 
 .container__head {
     height: 120px;
@@ -78,13 +123,19 @@ button:active {
 }
 
 .container__main {
-    padding: 0 20px;
-    margin: 0 auto 0 auto;
+    margin: auto;
+}
+
+.card {
+    padding: 20px 20px 40px 20px;
+    margin: 30px 10px 0 10px;
     text-align: center;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 
 .form {
-    padding-bottom: 30px;
     /*text-align: left;*/
     /*max-width: 400px;*/
     /*display: inline-block;*/
@@ -94,12 +145,9 @@ button:active {
     text-align: left;
 }
 
-.container__main .button {
-
-}
-
 .results {
     display: none;
+    padding: 40px 0;
 }
 
 

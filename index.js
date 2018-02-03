@@ -57,7 +57,13 @@ $(document).ready(function() {
         }
 
         changeDeltaText(reducedDays);
-        changeEndDateText(prevEndDate.subtract(reducedDays, 'd'));
+
+        if (delta > 0) {
+            changeEndDateText(prevEndDate.subtract(reducedDays, 'd'));
+        } else {
+            changeEndDateText(prevEndDate);
+        }
+
     });
 
 });

@@ -18,37 +18,42 @@
 
 <body>
 
-<div class="container__head">
-    <h1>군복무 단축 계산기</h1>
-</div>
+<main class="container__main">
 
-<div class="container__main">
-    <form class="form">
-        <div class="field">
-            <label>군별선택</label>
+    <div class="card">
 
-            <select class="select_service_type" name="service_type">
-                <option value="army">육군</option>
-                <option value="navy">해군</option>
-                <option value="airforce">공군</option>
-            </select>
+        <header>
+            <h1>군복무 단축 계산기</h1>
+        </header>
+
+        <form class="form">
+            <div class="field">
+                <label>군별선택</label>
+
+                <select class="select_service_type" name="service_type">
+                    <option value="army">육군</option>
+                    <option value="navy">해군</option>
+                    <option value="airforce">공군</option>
+                </select>
+            </div>
+
+            <div class="field">
+                <label>입대일</label>
+                <input type="text" id ="join_date" name="join_date" placeholder="예) 170131">
+            </div>
+
+            <button id="submit" class="ui button" type="button">계산!</button>
+
+        </form>
+
+        <div class="results">
+            <h2 class="results--delta">축하합니다! 군복무가 <b>20일</b> 단축되었습니다.</h2>
+            <h3 class="results--date">전역일은 2018년 01월 01일 입니다.</h3>
         </div>
 
-        <div class="field">
-            <label>입대일</label>
-            <input type="text" id ="join_date" name="join_date" placeholder="예) 170131">
-        </div>
-
-        <button id="submit" class="ui button" type="button">계산!</button>
-
-    </form>
-
-    <div class="results">
-        <h2 class="results--delta">축하합니다! 군복무가 <b>20일</b> 단축되었습니다.</h2>
-        <h3 class="results--date">전역일은 2018년 01월 01일 입니다.</h3>
     </div>
 
-</div>
+</main>
 
 </body>
 
