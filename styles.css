@@ -15,10 +15,17 @@ h1, h2, h3, h4, h5, p, label, button {
 }
 
 header {
-    height: 120px;
+    height: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.horizontal-divider {
+    height: 4px;
+    width: 100%;
+    background-color: #e3e4d1;
+    margin: 0 auto 20px auto;
 }
 
 h1 {
