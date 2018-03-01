@@ -24,46 +24,51 @@ function changeEndDateText(endDate) {
     $('.results--date').empty().append(dateStr);
 }
 
+function calculate() {
+    let joinDateString = $('#join_date').val();
+    let joinDate = moment(joinDateString, 'YYMMDD');
+    if (!joinDate.isValid()) {
+        alert('날짜를 올바르게 입력하여 주세요 (예. 170101)');
+        return;
+    }
+
+    $('.results').hide().fadeIn(1200).show();
+
+    let referenceDate = moment("161004", 'YYMMDD'); // Date when policy goes in effect
+
+    let reducedDays = Math.floor(
+        moment.duration(joinDate.diff(referenceDate)).asDays() / 14 + 1);
+
+    let prevEndDate;
+
+    let serviceType = $('.select_service_type').val();
+
+    prevEndDate = moment(joinDate);
+    if (serviceType === 'airforce') {
+        prevEndDate.year(prevEndDate.year() + 2);
+    } else if (serviceType === 'navy') {
+        prevEndDate = moment(joinDate);
+        prevEndDate.month(prevEndDate.month() + 23);
+    } else {
+        prevEndDate.month(prevEndDate.month() + 21);
+    }
+
+    prevEndDate.subtract(1, 'd');
+
+    changeDeltaText(reducedDays);
+
+    if (reducedDays > 0) {
+        changeEndDateText(prevEndDate.subtract(reducedDays, 'd'));
+    } else {
+        changeEndDateText(prevEndDate);
+    }
+
+    return false;
+}
+
 
 $(document).ready(function() {
 
-    $("#submit").click(function() {
-        let joinDateString = $('#join_date').val();
-        let joinDate = moment(joinDateString, 'YYMMDD');
-        if (!joinDate.isValid()) {
-            alert('날짜를 올바르게 입력하여 주세요 (예. 170101)');
-            return;
-        }
-
-        $('.results').hide().fadeIn(1200).show();
-
-        let referenceDate = moment("161004", 'YYMMDD'); // Date when policy goes in effect
-
-        let reducedDays = Math.floor(
-            moment.duration(joinDate.diff(referenceDate)).asDays() / 14 + 1);
-
-        let prevEndDate;
-
-        let serviceType = $('.select_service_type').val();
-
-        prevEndDate = moment(joinDate);
-        if (serviceType === 'airforce') {
-            prevEndDate.year(prevEndDate.year() + 2);
-        } else if (serviceType === 'navy') {
-            prevEndDate = moment(joinDate);
-            prevEndDate.month(prevEndDate.month() + 23);
-        } else {
-            prevEndDate.month(prevEndDate.month() + 21);
-        }
-
-        changeDeltaText(reducedDays);
-
-        if (reducedDays > 0) {
-            changeEndDateText(prevEndDate.subtract(reducedDays, 'd'));
-        } else {
-            changeEndDateText(prevEndDate);
-        }
-
-    });
+    // $("#submit").click(calculate());
 
 });
