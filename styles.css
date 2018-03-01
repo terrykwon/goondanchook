@@ -84,10 +84,13 @@ input[type=text], select {
     margin-top: 10px;
     /*line-height: 32px;*/
     background: #ffffff;
+    color: #606060;
 }
 
 select {
-
+    padding-bottom: 4px;
+    padding-top: 0;
+    height: 40px; /* Fix weird off-center/text clipping problem */
 }
 
 input[type=text]:focus {
