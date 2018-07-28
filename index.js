@@ -1,8 +1,6 @@
 // var moment = require('moment');
 moment().format();
 
-const _MS_PER_DAY = 1000 * 60 * 60 * 24;
-
 function changeDeltaText(delta) {
     let resStr;
 
@@ -34,11 +32,7 @@ function calculate() {
 
     $('.results').hide().fadeIn(1200).show();
 
-    let referenceDate = moment("170103", 'YYMMDD'); // Date when policy goes in effect
-
-    let reducedDays = Math.floor(
-        moment.duration(joinDate.diff(referenceDate)).asDays() / 14 + 1);
-
+    let referenceDate; // Date when policy first applied
     let prevEndDate;
 
     let serviceType = $('.select_service_type').val();
@@ -46,12 +40,23 @@ function calculate() {
     prevEndDate = moment(joinDate);
     if (serviceType === 'airforce') {
         prevEndDate.year(prevEndDate.year() + 2);
+        referenceDate = moment("161003", 'YYMMDD');
+
     } else if (serviceType === 'navy') {
-        prevEndDate = moment(joinDate);
         prevEndDate.month(prevEndDate.month() + 23);
+        referenceDate = moment("161103", 'YYMMDD');
+
+    } else if (serviceType === 'social_service') {
+        prevEndDate.year(prevEndDate.year() + 2);
+        referenceDate = moment("161003", 'YYMMDD');
+
     } else {
         prevEndDate.month(prevEndDate.month() + 21);
+        referenceDate = moment("170103", 'YYMMDD');
     }
+
+    let reducedDays = Math.floor(
+        moment.duration(joinDate.diff(referenceDate)).asDays() / 14 + 1);
 
     prevEndDate.subtract(1, 'd');
 
@@ -65,10 +70,3 @@ function calculate() {
 
     return false;
 }
-
-
-$(document).ready(function() {
-
-    // $("#submit").click(calculate());
-
-});
