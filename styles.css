@@ -18,7 +18,7 @@ h1, h2, h3, h4, h5, label, button {
 
 header p {
     font-family: sans-serif;
-    color: #bcbcbc;
+    color: #a2a2a2;
     font-size: 0.9rem;
     margin-top: 14px;
     word-break: keep-all;
@@ -27,7 +27,7 @@ header p {
 
 header a {
     color: #727a17;
-    text-decoration: none;
+    text-decoration: underline;
 }
 
 header {
