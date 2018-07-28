@@ -58,6 +58,11 @@ function calculate() {
     let reducedDays = Math.floor(
         moment.duration(joinDate.diff(referenceDate)).asDays() / 14 + 1);
 
+    // Cap at 90 days
+    if (reducedDays.valueOf() > 90) {
+        reducedDays = 90;
+    }
+
     prevEndDate.subtract(1, 'd');
 
     changeDeltaText(reducedDays);
